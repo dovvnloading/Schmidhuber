@@ -1,26 +1,20 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Trigger the workflow on push to the main branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Build Job
   build:
     runs-on: ubuntu-latest
     steps:
@@ -31,13 +25,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: 'npm'
+          # Cache line removed to prevent error if package-lock.json is missing
 
       - name: Install dependencies
-        run: npm ci
+        # Changed from 'npm ci' to 'npm install' to work without a lockfile
+        run: npm install
 
       - name: Build project
-        # CI=false prevents the build from failing if there are minor ESLint warnings
         run: CI=false npm run build
 
       - name: Upload artifact
@@ -45,7 +39,6 @@ jobs:
         with:
           path: ./dist
 
-  # Deploy Job
   deploy:
     environment:
       name: github-pages

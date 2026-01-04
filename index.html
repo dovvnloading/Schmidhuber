@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, viewport-fit=cover" />
+    <title>Deep Learning History</title>
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // Disables auto dark mode based on system preference to keep text dark
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Outfit"', 'sans-serif'],
+            },
+            colors: {
+              clay: {
+                bg: '#d1d9e6', // Slightly darker for contrast
+                surface: '#e0e5ec',
+                primary: '#2d6cdf', 
+                secondary: '#475569',
+                text: '#1e293b',
+                inset: '#d1d9e6',
+              }
+            },
+            boxShadow: {
+              'clay-xl': '20px 20px 40px #b1b9c5, -20px -20px 40px #ffffff',
+              'clay-lg': '12px 12px 24px #b1b9c5, -12px -12px 24px #ffffff',
+              'clay-md': '8px 8px 16px #b1b9c5, -8px -8px 16px #ffffff',
+              'clay-sm': '4px 4px 8px #b1b9c5, -4px -4px 8px #ffffff',
+              'clay-inner': 'inset 6px 6px 12px #b1b9c5, inset -6px -6px 12px #ffffff',
+              'clay-inner-sm': 'inset 3px 3px 6px #b1b9c5, inset -3px -3px 6px #ffffff',
+              'clay-sharp': '4px 4px 8px #b1b9c5, -2px -2px 6px #ffffff',
+            },
+            animation: {
+              'pop-in': 'popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'slide-in': 'slideIn 0.3s ease-out forwards'
+            },
+            keyframes: {
+              popIn: {
+                '0%': { opacity: '0', transform: 'scale(0.9) translateY(10px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              },
+              slideIn: {
+                '0%': { opacity: '0', transform: 'translateX(20px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* NUCLEAR LOCK - DO NOT TOUCH */
+      :root, body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        overflow: hidden !important; /* HARD LOCK */
+        background-color: #d1d9e6;
+        display: flex;
+        flex-direction: column;
+      }
+
+      #root {
+        flex: 1;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Hiding Scrollbars but keeping functionality */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+
+      /* Styled Scrollbar for Content Panels */
+      .styled-scroll {
+        padding-right: 4px; /* Space for scrollbar */
+      }
+      .styled-scroll::-webkit-scrollbar {
+        width: 6px;
+      }
+      .styled-scroll::-webkit-scrollbar-track {
+        background: transparent;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+      .styled-scroll::-webkit-scrollbar-thumb {
+        background-color: rgba(100, 116, 139, 0.3);
+        border-radius: 20px;
+      }
+      .styled-scroll::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(100, 116, 139, 0.5);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react/jsx-runtime": "https://esm.sh/react@^19.2.3/jsx-runtime",
+    "react-markdown": "https://esm.sh/react-markdown@9?bundle",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

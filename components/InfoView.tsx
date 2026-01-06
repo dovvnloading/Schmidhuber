@@ -51,11 +51,20 @@ export const InfoView: React.FC = () => {
            <ClayCard className="p-3 bg-clay-surface rounded-[2.5rem]">
               {/* RATIO FIX: 3:2 Aspect Ratio. Mobile: w-72 h-48. Desktop: w-[36rem] h-[24rem]. */}
               <div className="w-72 h-48 md:w-[36rem] md:h-[24rem] rounded-[2rem] overflow-hidden shadow-clay-inner border border-white/50 dark:border-white/10 relative group">
+                {/* Light Mode Image */}
                 <img 
                    src="https://github.com/dovvnloading/Schmidhuber/blob/main/Gemini_Generated_Image_zfx4yjzfx4yjzfx4.png?raw=true" 
                    alt="Jürgen Schmidhuber" 
-                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 dark:invert"
+                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 block dark:hidden"
                 />
+                
+                {/* Dark Mode Image */}
+                <img 
+                   src="https://github.com/dovvnloading/Schmidhuber/blob/main/Gemini_Generated_Image_jqtc24jqtc24jqtc.png?raw=true" 
+                   alt="Jürgen Schmidhuber" 
+                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 hidden dark:block"
+                />
+
                 <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[2rem] pointer-events-none" />
                 
                 {/* Overlay Label */}

@@ -5,7 +5,6 @@ import { TabNavigation } from './components/TabNavigation';
 import { TimelineView } from './components/TimelineView';
 import { DocumentationView } from './components/DocumentationView';
 import { InfoView } from './components/InfoView';
-import { ClayButton } from './components/ClayCard';
 
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabView>(TabView.DOCS);
@@ -77,24 +76,50 @@ const App: React.FC = () => {
             </div>
           </div>
           
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
              {/* Tabs - Centered/Right */}
             <div className="hidden md:block">
               <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
             </div>
 
-            {/* Dark Mode Toggle */}
-            <ClayButton variant="icon" onClick={toggleTheme} className="!w-12 !h-12 !rounded-xl" title="Toggle Theme">
-              {isDark ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-yellow-400">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" />
+            {/* Custom Industrial Toggle Switch */}
+            <div 
+              className="w-20 h-10 bg-clay-inset rounded-full relative cursor-pointer shadow-clay-inner-sm transition-colors duration-300 group"
+              onClick={toggleTheme}
+              title={isDark ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {/* Icons Track */}
+              <div className="absolute inset-0 flex items-center justify-between px-2.5">
+                {/* Light Icon (Geometric Aperture) */}
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-clay-secondary opacity-60">
+                   <circle cx="12" cy="12" r="3" fill="currentColor" />
+                   <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M12 4v2M12 18v2M4 12h2M18 12h2" />
                 </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-clay-secondary">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+                
+                {/* Dark Icon (Geometric Eclipse) */}
+                <svg viewBox="0 0 24 24" className="w-4 h-4 text-clay-secondary opacity-60">
+                   <path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-1.2 2.66 5.39 5.39 0 0 1-7.61 7.61 5.389 5.389 0 0 1-2.66-1.2c-.44-.06-.9-.1-1.36-.1z" />
                 </svg>
-              )}
-            </ClayButton>
+              </div>
+
+              {/* Sliding Puck */}
+              <div 
+                className={`
+                  absolute top-1 w-8 h-8 bg-clay-surface rounded-full shadow-clay-sm 
+                  border-t border-l border-white/40 dark:border-white/10
+                  transition-all duration-300 ease-out flex items-center justify-center
+                  ${isDark ? 'translate-x-[42px]' : 'translate-x-1'}
+                `}
+              >
+                 {/* Active State Icon Indicator */}
+                 {isDark ? (
+                    <div className="w-2 h-2 rounded-full bg-clay-primary shadow-[0_0_8px_rgba(var(--clay-primary),0.6)]"></div>
+                 ) : (
+                    <div className="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_8px_rgba(251,146,60,0.6)]"></div>
+                 )}
+              </div>
+            </div>
+
           </div>
         </div>
 

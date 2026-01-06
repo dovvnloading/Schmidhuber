@@ -96,9 +96,9 @@ const App: React.FC = () => {
                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M12 4v2M12 18v2M4 12h2M18 12h2" />
                 </svg>
                 
-                {/* Dark Icon (Geometric Eclipse) */}
+                {/* Dark Icon (Clean Geometric Crescent) */}
                 <svg viewBox="0 0 24 24" className="w-3 h-3 md:w-4 md:h-4 text-clay-secondary opacity-60">
-                   <path fill="currentColor" d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-1.2 2.66 5.39 5.39 0 0 1-7.61 7.61 5.389 5.389 0 0 1-2.66-1.2c-.44-.06-.9-.1-1.36-.1z" />
+                   <path fill="currentColor" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                 </svg>
               </div>
 

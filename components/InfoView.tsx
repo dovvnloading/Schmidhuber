@@ -50,11 +50,11 @@ export const InfoView: React.FC = () => {
         <div className="flex justify-center -mt-2 mb-4">
            <ClayCard className="p-3 bg-clay-surface rounded-[2.5rem]">
               {/* RATIO FIX: 3:2 Aspect Ratio. Mobile: w-72 h-48. Desktop: w-[36rem] h-[24rem]. */}
-              <div className="w-72 h-48 md:w-[36rem] md:h-[24rem] rounded-[2rem] overflow-hidden shadow-clay-inner border border-white/50 relative group">
+              <div className="w-72 h-48 md:w-[36rem] md:h-[24rem] rounded-[2rem] overflow-hidden shadow-clay-inner border border-white/50 dark:border-white/10 relative group">
                 <img 
                    src="https://github.com/dovvnloading/Schmidhuber/blob/main/Gemini_Generated_Image_zfx4yjzfx4yjzfx4.png?raw=true" 
                    alt="Jürgen Schmidhuber" 
-                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 dark:invert"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-black/10 rounded-[2rem] pointer-events-none" />
                 
@@ -74,7 +74,7 @@ export const InfoView: React.FC = () => {
              <SparklesIcon />
              <span>Purpose & Dedication</span>
           </h2>
-          <div className="prose prose-lg text-clay-text/80 leading-relaxed font-medium relative z-10">
+          <div className="prose prose-lg text-clay-text/80 dark:text-white leading-relaxed font-medium relative z-10">
             <p>
               This interactive documentation was developed independently as a digital homage to the pioneering work of <strong>Jürgen Schmidhuber</strong>.
             </p>
@@ -90,7 +90,7 @@ export const InfoView: React.FC = () => {
              <h3 className="text-sm font-black text-clay-secondary uppercase tracking-widest mb-4">Primary Sources</h3>
              
              <a href="https://people.idsia.ch/~juergen/deep-learning-history.html" target="_blank" rel="noopener noreferrer" className="block group">
-                 <ClayCard variant="surface" className="p-4 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/40 transition-all">
+                 <ClayCard variant="surface" className="p-4 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/40 dark:group-hover:bg-white/5 transition-all">
                     <div>
                        <div className="text-[10px] font-bold text-clay-primary uppercase tracking-wider mb-1">Original Archive</div>
                        <div className="font-bold text-clay-text text-sm">Deep Learning History 1990-1991</div>
@@ -100,7 +100,7 @@ export const InfoView: React.FC = () => {
               </a>
 
               <a href="https://people.idsia.ch/~juergen/most-cited-neural-nets.html" target="_blank" rel="noopener noreferrer" className="block group">
-                 <ClayCard variant="surface" className="p-4 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/40 transition-all">
+                 <ClayCard variant="surface" className="p-4 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/40 dark:group-hover:bg-white/5 transition-all">
                      <div>
                        <div className="text-[10px] font-bold text-clay-secondary uppercase tracking-wider mb-1">Additional Context</div>
                        <div className="font-bold text-clay-text text-sm">Most Cited Neural Networks</div>
@@ -114,7 +114,7 @@ export const InfoView: React.FC = () => {
              <h3 className="text-sm font-black text-clay-secondary uppercase tracking-widest mb-4">Connect</h3>
              
              <a href="https://x.com/SchmidhuberAI" target="_blank" rel="noopener noreferrer" className="block group">
-                 <ClayCard variant="surface" className="p-4 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/40 transition-all">
+                 <ClayCard variant="surface" className="p-4 flex items-center justify-between group-hover:scale-[1.02] group-hover:bg-white/40 dark:group-hover:bg-white/5 transition-all">
                      <div className="flex items-center gap-3">
                        <div className="w-8 h-8 rounded-lg bg-black text-white flex items-center justify-center">
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">

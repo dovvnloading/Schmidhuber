@@ -51,7 +51,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({ events, onSelectEven
                   <div className="flex justify-between items-start mb-3">
                     <div className={`
                       text-3xl font-black tracking-tighter opacity-20 transition-colors duration-300
-                      ${isSelected ? 'text-clay-primary' : 'text-clay-secondary'}
+                      ${isSelected ? 'text-clay-primary' : 'text-clay-secondary dark:text-white'}
                     `}>
                       {event.year}
                     </div>
@@ -65,7 +65,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({ events, onSelectEven
                     <h3 className="text-lg font-bold text-clay-text leading-tight mb-2 group-hover:text-clay-primary transition-colors">
                       {event.title}
                     </h3>
-                    <p className="text-xs text-clay-secondary leading-relaxed line-clamp-3 font-medium">
+                    <p className="text-xs text-clay-secondary dark:text-gray-400 leading-relaxed line-clamp-3 font-medium">
                       {event.content}
                     </p>
                   </div>
@@ -74,7 +74,7 @@ export const TimelineView: React.FC<TimelineViewProps> = ({ events, onSelectEven
                   <div className="mt-5 pt-3 border-t border-clay-secondary/10 dark:border-white/10 flex items-center justify-between transition-colors duration-300">
                     <span className={`
                       text-[9px] font-bold uppercase tracking-widest transition-colors duration-300
-                      ${isSelected ? 'text-clay-primary' : 'text-clay-secondary/60 dark:text-clay-secondary/50'}
+                      ${isSelected ? 'text-clay-primary' : 'text-clay-secondary/60 dark:text-white/50'}
                     `}>
                       Module {index + 1}
                     </span>

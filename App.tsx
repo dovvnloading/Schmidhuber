@@ -9,23 +9,28 @@ import { InfoView } from './components/InfoView';
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabView>(TabView.DOCS);
   const [activeEventId, setActiveEventId] = useState<string>(HISTORY_DATA[0].id);
-  const [isDark, setIsDark] = useState(false);
-
-  // Initial Theme Check
-  useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setIsDark(true);
-      document.documentElement.classList.add('dark');
+  
+  // FIXED: Initialize state lazily based on current DOM/Browser state to prevent flash
+  // The inline script in index.html will have already set the class on <html> if needed
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('dark') || 
+             (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
-  }, []);
+    return false;
+  });
 
-  const toggleTheme = () => {
-    setIsDark(!isDark);
-    if (!isDark) {
+  // Sync state with DOM on mount and updates
+  useEffect(() => {
+    if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark(!isDark);
   };
 
   const activeEvent = HISTORY_DATA.find(e => e.id === activeEventId) || HISTORY_DATA[0];

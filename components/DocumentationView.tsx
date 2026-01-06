@@ -23,20 +23,20 @@ export const DocumentationView: React.FC<DocumentationViewProps> = ({
   return (
     <div className="w-full h-full flex flex-col animate-slide-in p-4 md:p-8">
       {/* Reader Container */}
-      <ClayCard className="flex-1 flex flex-col overflow-hidden relative !rounded-[2rem] !shadow-none border-none ring-1 ring-white/50">
+      <ClayCard className="flex-1 flex flex-col overflow-hidden relative !rounded-[2rem] !shadow-none border-none ring-1 ring-white/50 dark:ring-white/10">
         
         {/* Fixed Header */}
-        <div className="flex-none p-6 md:px-10 md:py-8 border-b border-clay-secondary/10 bg-clay-surface z-10 shadow-sm relative">
+        <div className="flex-none p-6 md:px-10 md:py-8 border-b border-clay-secondary/10 bg-clay-surface z-10 shadow-sm relative transition-colors duration-300">
           
           {/* Top Row: Meta & Controls */}
           <div className="flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-4 mb-6">
             
             {/* Meta Badges */}
             <div className="flex items-center gap-3">
-              <span className="px-4 py-1.5 rounded-full bg-clay-primary/10 text-clay-primary text-[10px] font-black tracking-widest uppercase shadow-sm border border-white/50">
+              <span className="px-4 py-1.5 rounded-full bg-clay-primary/10 text-clay-primary text-[10px] font-black tracking-widest uppercase shadow-sm border border-white/50 dark:border-white/10">
                 {activeEvent.year}
               </span>
-              <span className="text-[10px] font-bold text-clay-secondary/50 uppercase tracking-widest hidden md:inline-block">
+              <span className="text-[10px] font-bold text-clay-secondary uppercase tracking-widest hidden md:inline-block">
                 Archive_Ref_{activeEvent.id}
               </span>
             </div>
@@ -84,18 +84,19 @@ export const DocumentationView: React.FC<DocumentationViewProps> = ({
         </div>
 
         {/* Scrollable Content Area */}
-        <div className="flex-1 overflow-y-auto styled-scroll bg-clay-surface/30 p-6 md:p-10">
+        <div className="flex-1 overflow-y-auto styled-scroll bg-clay-surface/30 p-6 md:p-10 transition-colors duration-300">
            <article className="
              prose prose-lg max-w-4xl mx-auto 
              prose-headings:font-black prose-headings:tracking-tight prose-headings:text-clay-text 
              prose-h1:text-4xl prose-h1:mb-8 prose-h1:text-clay-primary
              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-clay-secondary/10 prose-h2:pb-2
              prose-h3:text-lg prose-h3:mt-6 prose-h3:uppercase prose-h3:tracking-widest prose-h3:text-clay-secondary
-             prose-p:text-clay-text/80 prose-p:leading-8 prose-p:font-medium prose-p:mb-6
+             /* UPDATED: Removed opacity from text-clay-text to ensure readability in dark mode */
+             prose-p:text-clay-text prose-p:leading-8 prose-p:font-medium prose-p:mb-6
              prose-strong:text-clay-primary prose-strong:font-bold
-             prose-li:text-clay-text/80 prose-li:marker:text-clay-primary prose-li:font-medium
+             prose-li:text-clay-text prose-li:marker:text-clay-primary prose-li:font-medium
              prose-ul:list-disc prose-ul:pl-6 prose-ul:my-6 prose-ul:space-y-2
-             prose-ol:list-decimal prose-ol:pl-6 prose-ol:text-clay-text/80
+             prose-ol:list-decimal prose-ol:pl-6 prose-ol:text-clay-text
              prose-blockquote:border-l-4 prose-blockquote:border-clay-primary prose-blockquote:bg-clay-inset/50 prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-clay-secondary prose-blockquote:shadow-clay-inner-sm
              prose-hr:border-clay-secondary/20 prose-hr:my-10
              prose-a:text-clay-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline

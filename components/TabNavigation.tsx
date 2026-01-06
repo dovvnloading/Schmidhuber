@@ -24,10 +24,11 @@ export const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, onTabCh
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
             className={`
-              relative py-2.5 px-6 rounded-xl text-xs font-black tracking-widest transition-all duration-300
-              ${fullWidth ? 'flex-1' : ''}
+              relative py-2.5 
+              ${fullWidth ? 'flex-1 px-1 text-[10px]' : 'px-6 text-xs'} 
+              md:text-xs font-black tracking-widest transition-all duration-300 rounded-xl
               ${isActive 
-                ? 'bg-clay-surface text-clay-primary shadow-clay-sm border-t border-l border-white/60' 
+                ? 'bg-clay-surface text-clay-primary shadow-clay-sm border-t border-l border-white/60 dark:border-white/10' 
                 : 'text-clay-secondary hover:text-clay-text opacity-70 hover:opacity-100'}
             `}
           >

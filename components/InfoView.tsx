@@ -83,7 +83,8 @@ export const InfoView: React.FC = () => {
              <SparklesIcon />
              <span>Purpose & Dedication</span>
           </h2>
-          <div className="prose prose-lg text-clay-text/80 dark:text-white leading-relaxed font-medium relative z-10">
+          {/* UPDATED CLASS: Added prose-strong:text-clay-primary to fix invisible bold text in dark mode */}
+          <div className="prose prose-lg text-clay-text/80 dark:text-white prose-strong:text-clay-primary leading-relaxed font-medium relative z-10">
             <p>
               This interactive documentation was developed independently as a digital homage to the pioneering work of <strong>Jürgen Schmidhuber</strong>.
             </p>

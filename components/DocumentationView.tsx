@@ -16,7 +16,7 @@ export const DocumentationView: React.FC<DocumentationViewProps> = ({
   activeEvent, 
   onNext, 
   onPrev,
-  onHome,
+  onHome, 
   hasNext,
   hasPrev 
 }) => {
@@ -91,12 +91,22 @@ export const DocumentationView: React.FC<DocumentationViewProps> = ({
              prose-h1:text-4xl prose-h1:mb-8 prose-h1:text-clay-primary
              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-clay-secondary/10 prose-h2:pb-2
              prose-h3:text-lg prose-h3:mt-6 prose-h3:uppercase prose-h3:tracking-widest prose-h3:text-clay-secondary
-             /* UPDATED: Removed opacity from text-clay-text to ensure readability in dark mode */
-             prose-p:text-clay-text prose-p:leading-8 prose-p:font-medium prose-p:mb-6
+             
+             /* FIX: Explicitly separating Light and Dark mode behavior */
+             prose-p:text-clay-text/80 dark:prose-p:text-white 
+             prose-p:leading-8 prose-p:font-medium prose-p:mb-6
+             
              prose-strong:text-clay-primary prose-strong:font-bold
-             prose-li:text-clay-text prose-li:marker:text-clay-primary prose-li:font-medium
+             
+             /* FIX: Explicitly separating Light and Dark mode behavior */
+             prose-li:text-clay-text/80 dark:prose-li:text-white
+             prose-li:marker:text-clay-primary prose-li:font-medium
+             
              prose-ul:list-disc prose-ul:pl-6 prose-ul:my-6 prose-ul:space-y-2
-             prose-ol:list-decimal prose-ol:pl-6 prose-ol:text-clay-text
+             
+             /* FIX: Explicitly separating Light and Dark mode behavior */
+             prose-ol:list-decimal prose-ol:pl-6 prose-ol:text-clay-text/80 dark:prose-ol:text-white
+             
              prose-blockquote:border-l-4 prose-blockquote:border-clay-primary prose-blockquote:bg-clay-inset/50 prose-blockquote:rounded-r-xl prose-blockquote:py-4 prose-blockquote:px-6 prose-blockquote:not-italic prose-blockquote:text-clay-secondary prose-blockquote:shadow-clay-inner-sm
              prose-hr:border-clay-secondary/20 prose-hr:my-10
              prose-a:text-clay-primary prose-a:font-bold prose-a:no-underline hover:prose-a:underline

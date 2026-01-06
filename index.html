@@ -6,9 +6,41 @@
     <title>Deep Learning History</title>
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- THEME VARIABLES -->
+    <style>
+      :root {
+        /* Light Mode Palette */
+        --clay-bg: #d1d9e6;
+        --clay-surface: #e0e5ec;
+        --clay-primary: #2d6cdf;
+        --clay-secondary: #475569;
+        --clay-text: #1e293b;
+        --clay-inset: #d1d9e6;
+        
+        /* Light Mode Shadows (Darker shadow, Light highlight) */
+        --shadow-dark: #b1b9c5;
+        --shadow-light: #ffffff;
+      }
+
+      .dark {
+        /* Dark Mode Palette */
+        --clay-bg: #111827;      /* gray-900 */
+        --clay-surface: #1f2937; /* gray-800 */
+        --clay-primary: #60a5fa; /* blue-400 (lighter for contrast) */
+        --clay-secondary: #94a3b8; /* gray-400 */
+        --clay-text: #f1f5f9;    /* gray-100 */
+        --clay-inset: #0f172a;   /* gray-950 */
+
+        /* Dark Mode Shadows (Black shadow, Dark Gray highlight) */
+        --shadow-dark: #000000;
+        --shadow-light: #374151; /* gray-700 */
+      }
+    </style>
+
     <script>
       tailwind.config = {
-        darkMode: 'class', // Disables auto dark mode based on system preference to keep text dark
+        darkMode: 'class', 
         theme: {
           extend: {
             fontFamily: {
@@ -16,22 +48,22 @@
             },
             colors: {
               clay: {
-                bg: '#d1d9e6', // Slightly darker for contrast
-                surface: '#e0e5ec',
-                primary: '#2d6cdf', 
-                secondary: '#475569',
-                text: '#1e293b',
-                inset: '#d1d9e6',
+                bg: 'var(--clay-bg)',
+                surface: 'var(--clay-surface)',
+                primary: 'var(--clay-primary)', 
+                secondary: 'var(--clay-secondary)',
+                text: 'var(--clay-text)',
+                inset: 'var(--clay-inset)',
               }
             },
             boxShadow: {
-              'clay-xl': '20px 20px 40px #b1b9c5, -20px -20px 40px #ffffff',
-              'clay-lg': '12px 12px 24px #b1b9c5, -12px -12px 24px #ffffff',
-              'clay-md': '8px 8px 16px #b1b9c5, -8px -8px 16px #ffffff',
-              'clay-sm': '4px 4px 8px #b1b9c5, -4px -4px 8px #ffffff',
-              'clay-inner': 'inset 6px 6px 12px #b1b9c5, inset -6px -6px 12px #ffffff',
-              'clay-inner-sm': 'inset 3px 3px 6px #b1b9c5, inset -3px -3px 6px #ffffff',
-              'clay-sharp': '4px 4px 8px #b1b9c5, -2px -2px 6px #ffffff',
+              'clay-xl': '20px 20px 40px var(--shadow-dark), -20px -20px 40px var(--shadow-light)',
+              'clay-lg': '12px 12px 24px var(--shadow-dark), -12px -12px 24px var(--shadow-light)',
+              'clay-md': '8px 8px 16px var(--shadow-dark), -8px -8px 16px var(--shadow-light)',
+              'clay-sm': '4px 4px 8px var(--shadow-dark), -4px -4px 8px var(--shadow-light)',
+              'clay-inner': 'inset 6px 6px 12px var(--shadow-dark), inset -6px -6px 12px var(--shadow-light)',
+              'clay-inner-sm': 'inset 3px 3px 6px var(--shadow-dark), inset -3px -3px 6px var(--shadow-light)',
+              'clay-sharp': '4px 4px 8px var(--shadow-dark), -2px -2px 6px var(--shadow-light)',
             },
             animation: {
               'pop-in': 'popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
@@ -59,9 +91,10 @@
         margin: 0;
         padding: 0;
         overflow: hidden !important; /* HARD LOCK */
-        background-color: #d1d9e6;
+        background-color: var(--clay-bg); /* Updated to variable */
         display: flex;
         flex-direction: column;
+        transition: background-color 0.3s ease; /* Smooth transition */
       }
 
       #root {

@@ -10,22 +10,29 @@ const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabView>(TabView.DOCS);
   const [activeEventId, setActiveEventId] = useState<string>(HISTORY_DATA[0].id);
   
-  // FIXED: Initialize state lazily based on current DOM/Browser state to prevent flash
-  // The inline script in index.html will have already set the class on <html> if needed
+  // FIXED: Initialize state based on localStorage or OS preference
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
+      // Check localStorage first
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        return savedTheme === 'dark';
+      }
+      // Fallback to DOM class check (set by index.html script) or OS preference
       return document.documentElement.classList.contains('dark') || 
              (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
     }
     return false;
   });
 
-  // Sync state with DOM on mount and updates
+  // Sync state with DOM and localStorage on updates
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 

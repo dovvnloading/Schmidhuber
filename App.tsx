@@ -9,7 +9,6 @@ import { InfoView } from './components/InfoView';
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState<TabView>(TabView.DOCS);
   const [activeEventId, setActiveEventId] = useState<string>(HISTORY_DATA[0].id);
-  const [isDark, setIsDark] = useState(false);
   
   // FIXED: Initialize state lazily based on current DOM/Browser state to prevent flash
   // The inline script in index.html will have already set the class on <html> if needed
@@ -21,26 +20,17 @@ const App: React.FC = () => {
     return false;
   });
 
-  // Initial Theme Check
   // Sync state with DOM on mount and updates
   useEffect(() => {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setIsDark(true);
     if (isDark) {
       document.documentElement.classList.add('dark');
     } else {
       document.documentElement.classList.remove('dark');
     }
-  }, []);
   }, [isDark]);
 
   const toggleTheme = () => {
     setIsDark(!isDark);
-    if (!isDark) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
   };
 
   const activeEvent = HISTORY_DATA.find(e => e.id === activeEventId) || HISTORY_DATA[0];
@@ -74,10 +64,10 @@ const App: React.FC = () => {
 
   return (
     <div className="flex-1 w-full h-full p-2 md:p-8 flex items-center justify-center">
-
+      
       {/* MAIN CONTAINER - FIXED MAX DIMENSIONS - NEVER SCROLLS ITSELF */}
       <div className="w-full h-full max-w-6xl max-h-[900px] bg-clay-surface rounded-[1.5rem] md:rounded-[2rem] shadow-clay-xl border border-white/40 dark:border-white/10 flex flex-col overflow-hidden relative transition-colors duration-300">
-
+        
         {/* Top Bar / Header */}
         <div className="flex-none h-20 md:h-28 px-5 md:px-10 flex items-center justify-between bg-clay-surface z-20 border-b border-white/20 dark:border-white/5 transition-colors duration-300 gap-2">
           <div 
@@ -90,7 +80,7 @@ const App: React.FC = () => {
               <span className="text-[10px] md:text-xs font-bold text-clay-secondary tracking-widest uppercase whitespace-nowrap">Schmidhuber Archive v2.0</span>
             </div>
           </div>
-
+          
           <div className="flex items-center gap-3 md:gap-6 flex-shrink-0">
              {/* Tabs - Centered/Right (Desktop Only) */}
             <div className="hidden md:block">
@@ -110,7 +100,7 @@ const App: React.FC = () => {
                    <circle cx="12" cy="12" r="3" fill="currentColor" />
                    <path stroke="currentColor" strokeWidth="2" strokeLinecap="round" d="M12 4v2M12 18v2M4 12h2M18 12h2" />
                 </svg>
-
+                
                 {/* Dark Icon (Clean Geometric Crescent) */}
                 <svg viewBox="0 0 24 24" className="w-3 h-3 md:w-4 md:h-4 text-clay-secondary opacity-60">
                    <path fill="currentColor" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
@@ -145,10 +135,10 @@ const App: React.FC = () => {
 
         {/* Content Area - THE ONLY PLACE SCROLLING HAPPENS */}
         <div className="flex-1 min-h-0 relative overflow-hidden bg-clay-inset rounded-b-[1.5rem] md:rounded-b-[2rem] shadow-clay-inner transition-colors duration-300">
-
+            
             {/* Viewport for Views */}
             <div className="absolute inset-0">
-
+                
                 {activeTab === TabView.TIMELINE && (
                     <TimelineView 
                         events={HISTORY_DATA}

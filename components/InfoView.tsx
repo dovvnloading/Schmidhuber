@@ -152,7 +152,7 @@ export const InfoView: React.FC = () => {
            </div>
                  
            <div className="flex flex-wrap justify-center gap-4 w-full max-w-lg">
-              <a href="https://dovvnloading.github.io/" target="_blank" rel="noreferrer" className="flex-1 min-w-[120px]">
+              <a href="https://matt-wesney.github.io/website/" target="_blank" rel="noreferrer" className="flex-1 min-w-[120px]">
                 <ClayButton variant="default" className="w-full !text-base !py-4">
                    <GlobeIcon /> Portfolio
                 </ClayButton>
